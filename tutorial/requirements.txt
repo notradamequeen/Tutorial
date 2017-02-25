@@ -1,3 +1,4 @@
 # Python dependencies to be installed
 Django==1.10.5
 flake8==3.3.0
+django-debug-toolbar==1.6
