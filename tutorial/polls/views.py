@@ -20,7 +20,8 @@ class IndexView(generic.ListView):
         :returns: published in the future).
 
         """
-        return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+        return Question.objects.filter(
+            pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
 
 class DetailView(generic.DetailView):
@@ -42,8 +43,8 @@ class ResultsView(generic.DetailView):
 def vote(request, question_id):
     """
 
-    :param request: 
-    :param question_id: 
+    :param request:
+    :param question_id:
 
     """
     question = get_object_or_404(Question, pk=question_id)
@@ -58,4 +59,7 @@ def vote(request, question_id):
     else:
         selected_choice.votes += 1
         selected_choice.save()
-        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+        return HttpResponseRedirect(
+            reverse(
+                'polls:results', args=(
+                    question.id,)))
