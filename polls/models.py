@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+
 
 import datetime
 import os
@@ -13,7 +13,7 @@ from django.utils.encoding import python_2_unicode_compatible
 
 @python_2_unicode_compatible
 class Question(models.Model):
-    """ here is the question models. contain question_text, description, pub_date and image  
+    """ here is the question models. contain question_text, description, pub_date and image
     """
     question_text = models.CharField(max_length=200)
     question_description = models.CharField(max_length=500)
@@ -33,8 +33,8 @@ class Question(models.Model):
 
     @property
     def imagename(self):
-        """return the images path"""
-       return 'polls/media/'+str(self.image).split('/')[-1]
+       """return the images path"""
+       return ('polls/media/'+str(self.image).split('/')[-1])
 
 
 @python_2_unicode_compatible
