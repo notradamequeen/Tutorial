@@ -58,7 +58,9 @@ class QuestionViewTest(TestCase):
     """ """
 
     def test_index_view_with_no_question(self):
-        """if no question exists, an appropriate message should be displayed."""
+        """
+        if no question exists, an appropriate message should be displayed.
+        """
         response = self.client.get(reverse('polls:index'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No polls are available.")
@@ -117,7 +119,10 @@ class QuestionIndexDetailTests(TestCase):
     """ """
 
     def test_detail_view_with_a_future_question(self):
-        """The detail view of a question with a pub_date in the future should"""
+        """
+        The detail view of a question with a pub_date
+        in the future should
+        """
         future_question = create_question(
             question_text="Future question.", days=5)
         url = reverse('polls:detail', args=(future_question.id,))
@@ -127,8 +132,6 @@ class QuestionIndexDetailTests(TestCase):
     def test_detail_view_with_a_papst_question(self):
         """The detail view of a question with a pub_date in the past should
         display the question's text.
-
-
         """
         past_question = create_question(
             question_text='Past Question.', days=-5)
