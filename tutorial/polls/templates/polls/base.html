@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>Polls</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'polls/css/style.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-sidenav a {padding:20px}
+</style>
+<body>
+
+{% include "polls/nav/nav.html" %}
+
+<!-- Top menu -->
+{% include "polls/header/header.html" %}
+<div class="w3-main w3-content w3-padding" style="max-width:100%;margin-top:100px; min-height:390px;">
+{% block content %}
+{% endblock %}
+</div>
+{% include "polls/footer/footer.html" %}
+</body>
+
+</html>
+<script>
+// Script to open and close sidenav
+function w3_open() {
+    document.getElementById("mySidenav").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidenav").style.display = "none";
+}
+</script>
