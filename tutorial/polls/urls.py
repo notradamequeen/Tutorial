@@ -14,4 +14,6 @@ urlpatterns = [
         name='results'),
     # ex:/polls/<question_id>/votes/
     url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name='vote'),
+    # ex:/polls/about
+    url(r'^about/', views.about, name='about'),
 ]
