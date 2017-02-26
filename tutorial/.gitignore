@@ -1,0 +1,5 @@
+/pyment/
+/venv/
+*.pyc
+db.sqlite3
+
