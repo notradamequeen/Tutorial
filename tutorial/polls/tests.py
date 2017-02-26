@@ -3,6 +3,7 @@ import datetime
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
+
 from models import Question
 
 
@@ -25,9 +26,9 @@ class QuestionMethodTest(TestCase):
 
 
         """
-            time = timezone.now() - datetime.timedelta(days=30)
-            old_question = Question(pub_date=time)
-            self.assertIs(old_question.was_published_recently(), False)
+        time = timezone.now() - datetime.timedelta(days=30)
+        old_question = Question(pub_date=time)
+        self.assertIs(old_question.was_published_recently(), False)
 
     def test_was_published_recently_with_recent_question(self):
         """was_published_recently() should return True for questions whose
